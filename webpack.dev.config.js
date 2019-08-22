@@ -1,5 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path'); // native node.js api
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // to be installed via npm
+const WebpackCompilationCompletedPlugin = require('./MyWebpackPlugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -16,4 +17,10 @@ module.exports = {
             { test: /\.css$/, use: ['style-loader', 'css-loader'] }
         ]
     },
+
+    // PLUGINS serve the purpose of doing anything else that a loader cannot do.
+    plugins: [
+        new HtmlWebpackPlugin({template: './src/index.html'}), // this plugin generates an HTML file by adding your generated bundles in the given template and puts it in dist/
+        new WebpackCompilationCompletedPlugin() // it logs when webpack compilation completes
+    ]
 }
