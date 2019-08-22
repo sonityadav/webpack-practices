@@ -4,7 +4,14 @@ import _ from 'lodash';
 
 function createDiv() {
     const el = document.createElement('div');
-    el.innerHTML = _.join(['Go', 'to', 'hell'], ' ');
+
+    var data = [
+        { "name": "Maria", "chosen": false },
+        { "name": "Jenny", "chosen": false },
+        { "name": "Ben", "chosen": false },
+        { "name": "Morris", "chosen": false }
+    ];
+    el.innerHTML = _.map(data, 'name').join(', ');
     return el;
 }
 

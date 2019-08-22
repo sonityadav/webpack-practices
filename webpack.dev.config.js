@@ -10,6 +10,12 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
 
+    // Webpack enables built-in optimizations that correspond to each environment.
+    mode: 'development', // defaults to PRODUCTION
+
+    //  Webpack offers multiple deployment targets. Each target has a variety of deployment/environment specific additions, support to fit its needs.
+    target: 'web', // default is 'web', other could be 'node'
+
     // Webpack only understands JavaScript and JSON files. LOADERS allow webpack to process other types of files and convert them into valid modules.
     module: {
         rules: [
